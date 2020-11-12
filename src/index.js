@@ -62,8 +62,8 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', function (){
-  createDefaultWindow();
   createWindow();
+  createDefaultWindow();
  });
 
 
@@ -120,6 +120,7 @@ autoUpdater.on('download-progress', (progressObj) => {
 })
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded');
+  autoUpdater.quitAndInstall();  
 });
 
 
