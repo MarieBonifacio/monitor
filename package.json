@@ -10,7 +10,8 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
-    "build": "electron-builder build"
+    "build": "electron-builder build",
+    "dist": "electron-builder -mlw"
   },
   "keywords": [],
   "author": {
@@ -46,6 +47,7 @@
     }
   },
   "dependencies": {
+    "@electron-forge/maker-dmg": "^6.0.0-beta.54",
     "electron-log": "^4.3.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.5",
@@ -75,14 +77,16 @@
       "buildResources": "./build"
     },
     "mac": {
-      "target": "zip",
-      "category": "io.busticated.testapp"
+      "target": "zip"
     },
     "win": {
-      "target": "portable"
+      "target": "zip"
     },
     "linux": {
-      "target": ["AppImage", "deb"]
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   }
 }
