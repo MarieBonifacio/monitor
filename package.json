@@ -1,7 +1,7 @@
 {
   "name": "monitor",
   "productName": "monitor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "build": "electron-builder build"
   },
   "keywords": [],
   "author": {
@@ -52,11 +53,36 @@
     "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
+    "electron-builder": "^22.9.1",
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "10.1.5"
+  },
+  "build": {
+    "productName": "Monitor",
+    "artifactName": "Monitor-${version}.${ext}",
+    "appId": "io.busticated.testapp",
+    "files": [
+      "./src//*",
+      "./build//*"
+    ],
+    "directories": {
+      "app": "./",
+      "output": "./dist",
+      "buildResources": "./build"
+    },
+    "mac": {
+      "target": "zip",
+      "category": "io.busticated.testapp"
+    },
+    "win": {
+      "target": "portable"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
   }
 }
