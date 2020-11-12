@@ -2,11 +2,36 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Monitor</title>
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <h1>Monitor</h1>
+
+    <div class="ctn">
+      <canvas id="myChart" width="20" height="200"></canvas>
+    </div>
+
+    <div class="box">
+      <span class="label">Free Mem (GB)</span>
+      <span id="free-mem">-</span>
+    </div>
+
+    <!-- <div class="box">
+      <span class="label">CPU (%)</span>
+      <span id="cpu">-</span>
+    </div>
+    <div class="box">
+      <span class="label">Free Mem (%)</span>
+      <span id="mem">-</span>
+    </div>
+    <div class="box">
+      <span class="label">Total Mem (GB)</span>
+      <span id="total-mem">-</span>
+    </div> -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
